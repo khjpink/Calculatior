@@ -24,8 +24,8 @@ namespace Calculator
 
         Operators currentOperator = Operators.None;
         Boolean operatorChangeFlag  = false;
-        int firstOperand = 0;
-        int secondOperand = 0;
+        public decimal firstOperand = 0;
+        public decimal secondOperand = 0;
 
         public Form1()
         {
@@ -35,7 +35,7 @@ namespace Calculator
         // =  결과 
         private void ButtonResult_Click(object sender, EventArgs e)
         {
-            secondOperand = Int32.Parse(display.Text);
+            secondOperand = Decimal.Parse(display.Text);
             if (currentOperator == Operators.Add)
             {
                 firstOperand += secondOperand;
@@ -68,44 +68,39 @@ namespace Calculator
         // 연산자 클릭 
         private void ButtonAdd_Click(object sender, EventArgs e)
         {
-            firstOperand = Int32.Parse(display.Text);
+            firstOperand = Decimal.Parse(display.Text);
             currentOperator = Operators.Add;
             operatorChangeFlag = true;
         }
 
         private void ButtonSubtract_Click(object sender, EventArgs e)
         {
-            firstOperand = Int32.Parse(display.Text);
+            firstOperand = Decimal.Parse(display.Text);
             currentOperator = Operators.Subtract;
             operatorChangeFlag = true;
         }
 
         private void ButtonMultiply_Click(object sender, EventArgs e)
         {
-            firstOperand = Int32.Parse(display.Text);
+            firstOperand = Decimal.Parse(display.Text);
             currentOperator = Operators.Multiply;
             operatorChangeFlag = true;
         }
         private void ButtonDivide_Click(object sender, EventArgs e)
         {
-            firstOperand = Int32.Parse(display.Text);
+            firstOperand = Decimal.Parse(display.Text);
             currentOperator = Operators.Divide;
             operatorChangeFlag = true;
         }
 
-
-
         // 숫자 클릭
         private void ButtonNone_Click(object sender, EventArgs e)
         {
-            //if (operatorChangeFlag == true)
-            //{
-                display.Text = "0";
+                display.Text = "";
                 firstOperand = 0;
                 secondOperand = 0;
                 currentOperator = Operators.None;
                 operatorChangeFlag = false;
-            //}
         }
 
         private void ButtonDot_Click(object sender, EventArgs e)
@@ -119,8 +114,7 @@ namespace Calculator
             {
                 display.Text += ".";
             }
-            
-        }
+        } 
 
         private void ButtonZero_Click(object sender, EventArgs e)
         {
@@ -129,9 +123,12 @@ namespace Calculator
                 display.Text = "";
                 operatorChangeFlag = false;
             }
-            string strNumber = display.Text += "0";
-            int intNumber = Int32.Parse(strNumber);
-            display.Text = intNumber.ToString();
+
+            if(display.Text == "0")
+            {
+                return;
+            }
+            display.Text += "0";
         }
         private void ButtonOne_Click(object sender, EventArgs e)
         {
@@ -140,9 +137,11 @@ namespace Calculator
                 display.Text = "";
                 operatorChangeFlag = false;
             }
-            string strNumber = display.Text += "1";
-            int intNumber = Int32.Parse(strNumber);
-            display.Text = intNumber.ToString();
+            if (display.Text == "0")
+            {
+                display.Text = "";
+            }
+                display.Text += "1";
         }
         private void ButtonTwo_Click(object sender, EventArgs e)
         {
@@ -151,9 +150,11 @@ namespace Calculator
                 display.Text = "";
                 operatorChangeFlag = false;
             }
-            string strNumber = display.Text += "2";
-            int intNumber = Int32.Parse(strNumber);
-            display.Text = intNumber.ToString();
+            if (display.Text == "0")
+            {
+                display.Text = "";
+            }
+            display.Text += "2";
         }
 
         private void ButtonThree_Click(object sender, EventArgs e)
@@ -163,9 +164,11 @@ namespace Calculator
                 display.Text = "";
                 operatorChangeFlag = false;
             }
-            string strNumber = display.Text += "3";
-            int intNumber = Int32.Parse(strNumber);
-            display.Text = intNumber.ToString();
+            if (display.Text == "0")
+            {
+                display.Text = "";
+            }
+            display.Text += "3";
         }
 
         private void ButtonFour_Click(object sender, EventArgs e)
@@ -175,9 +178,11 @@ namespace Calculator
                 display.Text = "";
                 operatorChangeFlag = false;
             }
-            string strNumber = display.Text += "4";
-            int intNumber = Int32.Parse(strNumber);
-            display.Text = intNumber.ToString();
+            if (display.Text == "0")
+            {
+                display.Text = "";
+            }
+            display.Text += "4";
         }
 
         private void ButtonFive_Click(object sender, EventArgs e)
@@ -187,11 +192,12 @@ namespace Calculator
                 display.Text = "";
                 operatorChangeFlag = false;
             }
-            string strNumber = display.Text += "5";
-            int intNumber = Int32.Parse(strNumber);
-            display.Text = intNumber.ToString();
+            if (display.Text == "0")
+            {
+                display.Text = "";
+            }
+            display.Text += "5";
         }
-
         private void ButtonSix_Click(object sender, EventArgs e)
         {
             if (operatorChangeFlag == true)
@@ -199,9 +205,11 @@ namespace Calculator
                 display.Text = "";
                 operatorChangeFlag = false;
             }
-            string strNumber = display.Text += "6";
-            int intNumber = Int32.Parse(strNumber);
-            display.Text = intNumber.ToString();
+            if (display.Text == "0")
+            {
+                display.Text = "";
+            }
+            display.Text += "6";
         }
         private void ButtonSeven_Click(object sender, EventArgs e)
         {
@@ -210,9 +218,11 @@ namespace Calculator
                 display.Text = "";
                 operatorChangeFlag = false;
             }
-            string strNumber = display.Text += "7";
-            int intNumber = Int32.Parse(strNumber);
-            display.Text = intNumber.ToString();
+            if (display.Text == "0")
+            {
+                display.Text = "";
+            }
+            display.Text += "7";
         }
 
         private void ButtonEight_Click(object sender, EventArgs e)
@@ -222,9 +232,11 @@ namespace Calculator
                 display.Text = "";
                 operatorChangeFlag = false;
             }
-            string strNumber = display.Text += "8";
-            int intNumber = Int32.Parse(strNumber);
-            display.Text = intNumber.ToString();
+            if (display.Text == "0")
+            {
+                display.Text = "";
+            }
+            display.Text += "8";
         }
         private void ButtonNine_Click(object sender, EventArgs e)
         {
@@ -233,10 +245,12 @@ namespace Calculator
                 display.Text = "";
                 operatorChangeFlag = false;
             }
-            string strNumber = display.Text += "9";
-            int intNumber = Int32.Parse(strNumber);
-            display.Text = intNumber.ToString();
-        }
+            if (display.Text == "0")
+            {
+                display.Text = "";
+            }
+            display.Text += "9";
+        }// end
 
 
 
